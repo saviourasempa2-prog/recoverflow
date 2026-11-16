@@ -1,11 +1,10 @@
 import { json } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import { Page } from "@shopify/polaris";
-import { authenticate } from "../shopify.server";
+import { authenticate } from "~/shopify.server";
 
 export async function loader({ request }) {
   await authenticate.admin(request);
-
   return json({ ok: true, route: "app" });
 }
 

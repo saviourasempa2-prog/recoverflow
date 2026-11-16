@@ -3,7 +3,7 @@ import { ApiVersion, shopifyApp } from "@shopify/shopify-app-remix/server";
 import { MemorySessionStorage } from "@shopify/shopify-app-session-storage-memory";
 import { PostgreSQLSessionStorage } from "@shopify/shopify-app-session-storage-postgresql";
 
-const databaseUrl = process.env.DATABASE_URL;
+const databaseUrl = process.env.DATABASE_URL?.trim();
 
 let sessionStorage;
 if (databaseUrl) {
